@@ -1,0 +1,300 @@
+/* Modular Dialogue System Styles */
+
+.dialogue-system {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  max-width: 90vw;
+  width: 500px;
+  cursor: pointer;
+}
+
+.dialogue-container {
+  background: linear-gradient(135deg, #1A3A3A 0%, #2A4A4A 100%);
+  border: 2px solid #4A8A9A;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(74, 138, 154, 0.3);
+  backdrop-filter: blur(8px);
+  animation: dialogue-pop-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes dialogue-pop-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1) translateY(0);
+  }
+}
+
+/* Character Header */
+.dialogue-character {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(74, 138, 154, 0.3);
+}
+
+.character-icon {
+  font-size: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(74, 138, 154, 0.2);
+  border-radius: 6px;
+}
+
+.character-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #6BB3C9;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+/* Dialogue Content */
+.dialogue-content {
+  margin: 12px 0;
+  min-height: 40px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.dialogue-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #E0E8F0;
+  margin: 0;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Typing Cursor */
+.typing-cursor {
+  display: inline-block;
+  margin-left: 3px;
+  width: 2px;
+  background: #4A8A9A;
+  animation: cursor-blink 0.8s infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Dialogue Controls */
+.dialogue-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(74, 138, 154, 0.3);
+}
+
+.dialogue-continue {
+  background: linear-gradient(135deg, #4A8A9A 0%, #3A7A8A 100%);
+  color: #E0E8F0;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+.dialogue-continue:hover {
+  background: linear-gradient(135deg, #5A9AAA 0%, #4A8A9A 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 138, 154, 0.4);
+}
+
+.dialogue-continue:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(74, 138, 154, 0.3);
+}
+
+.dialogue-progress {
+  font-size: 11px;
+  color: #6BB3C9;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+/* Scrollbar Styling */
+.dialogue-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dialogue-content::-webkit-scrollbar-track {
+  background: rgba(74, 138, 154, 0.1);
+  border-radius: 2px;
+}
+
+.dialogue-content::-webkit-scrollbar-thumb {
+  background: rgba(74, 138, 154, 0.3);
+  border-radius: 2px;
+}
+
+.dialogue-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 138, 154, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dialogue-system {
+    width: calc(100vw - 40px);
+    max-width: none;
+  }
+
+  .dialogue-container {
+    padding: 14px;
+  }
+
+  .character-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+
+  .character-name {
+    font-size: 12px;
+  }
+
+  .dialogue-text {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .dialogue-continue {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .dialogue-progress {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dialogue-system {
+    bottom: 10px;
+    width: calc(100vw - 20px);
+  }
+
+  .dialogue-container {
+    padding: 12px;
+  }
+
+  .dialogue-character {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .character-name {
+    font-size: 11px;
+  }
+
+  .dialogue-text {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .dialogue-content {
+    min-height: 35px;
+    max-height: 80px;
+  }
+
+  .dialogue-controls {
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 8px;
+  }
+
+  .dialogue-continue {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .dialogue-container {
+    background: linear-gradient(135deg, #0A2A2A 0%, #1A3A3A 100%);
+    border-color: #3A7A8A;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.7),
+      0 0 20px rgba(58, 122, 138, 0.2);
+  }
+
+  .dialogue-character {
+    border-bottom-color: rgba(58, 122, 138, 0.4);
+  }
+
+  .dialogue-controls {
+    border-top-color: rgba(58, 122, 138, 0.4);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .dialogue-container,
+  .dialogue-continue {
+    animation: none;
+    transition: none;
+  }
+
+  .typing-cursor {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .dialogue-system {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: none;
+    margin: 20px 0;
+  }
+
+  .dialogue-container {
+    box-shadow: none;
+    border-color: #999;
+    background: white;
+    color: black;
+  }
+
+  .dialogue-continue {
+    display: none;
+  }
+
+  .typing-cursor {
+    display: none;
+  }
+}

@@ -1,0 +1,77 @@
+/* Computer screen display effect */
+.screen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2C2C2C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  overflow: auto;
+}
+
+.monitor-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  height: 600px;
+  background: #1A1A1A;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 
+    0 0 80px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 2px solid #404040;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.monitor-inner {
+  width: 100%;
+  height: 100%;
+  background: #3A7A6A;
+  border-radius: 12px;
+  overflow: auto;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.monitor-bezel {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 35px;
+  background: linear-gradient(180deg, #2C2C2C 0%, #1A1A1A 100%);
+  border-radius: 0 0 20px 20px;
+}
+
+.monitor-light {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4CAF50;
+  box-shadow: 0 0 10px #4CAF50;
+}
+
+/* Drag over effect for departments */
+.dz.drag-over {
+  transform: scale(1.02);
+  transition: all 0.2s ease;
+}
+
+.pc.dragging {
+  transform: rotate(-2deg) scale(0.95);
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3));
+}

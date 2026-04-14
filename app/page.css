@@ -1,0 +1,115 @@
+/* Page Layout Styles */
+
+.page-main {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1A1A1A 0%, #2C2C2C 50%, #1A2A2A 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.game-environment {
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  max-height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Responsive Layout */
+@media (max-width: 1440px) {
+  .game-environment {
+    max-width: 90vw;
+    max-height: 85vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .game-environment {
+    max-width: 95vw;
+    max-height: 90vh;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-main {
+    height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+
+  .game-environment {
+    max-width: 100vw;
+    max-height: 100vh;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-main {
+    height: 100dvh;
+  }
+
+  .game-environment {
+    padding: 5px;
+  }
+}
+
+/* High DPI Displays */
+@media (min-width: 1920px) {
+  .page-main {
+    background: linear-gradient(135deg, #0A0A0A 0%, #1C1C1C 50%, #0A1A1A 100%);
+  }
+
+  .game-environment {
+    max-width: 1600px;
+    max-height: 1000px;
+  }
+}
+
+/* Prevent default scroll behavior */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Smooth color transitions */
+@media (prefers-reduced-motion: no-preference) {
+  .page-main {
+    transition: background 0.3s ease;
+  }
+}
+
+/* Dark mode detection */
+@media (prefers-color-scheme: light) {
+  .page-main {
+    background: linear-gradient(135deg, #F5F5F5 0%, #E8E8E8 50%, #F0F5F5 100%);
+  }
+}
+
+/* Print styles */
+@media print {
+  .page-main {
+    height: auto;
+    background: white;
+    padding: 0;
+  }
+
+  .game-environment {
+    max-width: 100%;
+    max-height: none;
+    padding: 0;
+  }
+}
